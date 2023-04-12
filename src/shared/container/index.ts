@@ -5,6 +5,8 @@ import { CarsRepository } from "../../modules/veiculos/infra/repositories/CarsRe
 import { ICarsRepository } from "../../modules/veiculos/repositories/ICarsRepository";
 import { IDriversRepository } from "@modules/drivers/repositories/IDriversRepository";
 import { DriversRepository } from "@modules/drivers/infra/repositories/DriversRepository";
+import { ISupplyRepository } from "@modules/supply/repositories/ISupplyRepository";
+import { SupplyRepository } from "@modules/supply/infra/repositories/SupplyRepository";
 
 container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository);
 container.registerSingleton<IUsersRepository>(
@@ -14,4 +16,9 @@ container.registerSingleton<IUsersRepository>(
 container.registerSingleton<IDriversRepository>(
     "DriversRepository",
     DriversRepository
+);
+
+container.registerSingleton<ISupplyRepository>(
+    "SupplyRepository",
+    SupplyRepository
 );
