@@ -5,11 +5,20 @@ import { router } from './shared/routes';
 import createConnection from  "./shared/typeorm";
 import "@shared/container"
 import { AppError } from "@shared/errors/AppError";
+import cors from 'cors'
 
 createConnection();
 const app = express();
 
 app.use(express.json());
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    app.use(cors());
+    next();
+});
 
 app.use(router);
 
