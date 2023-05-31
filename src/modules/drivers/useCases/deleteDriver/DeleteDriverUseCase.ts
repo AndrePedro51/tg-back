@@ -13,7 +13,7 @@ class DeleteDriverUseCase {
     async execute(id: string): Promise<DeleteResult> {
         const driverExist = await this.driversRepository.findById(id);
         if (!driverExist) {
-            throw new AppError("Driver do not exist");
+            throw new AppError("Motorista não existe!");
         }
         const deletedUser = await this.driversRepository.deleteDriver(id);
 

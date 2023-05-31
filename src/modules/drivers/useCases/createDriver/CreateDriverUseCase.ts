@@ -31,7 +31,7 @@ class CreateDriverUseCase {
     }: IRequest): Promise<Drivers> {
         const driverAlreadyExist = await this.driversRepository.findByCpf(cpf);
         if (driverAlreadyExist) {
-            throw new AppError("Driver already exist");
+            throw new AppError("Motorista já existe!");
         }
         const driver = await this.driversRepository.create({
             name,
